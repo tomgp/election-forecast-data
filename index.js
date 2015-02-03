@@ -10,6 +10,8 @@ var seatResult = 'http://electionforecast.co.uk/tables/predicted_vote_by_seat.ht
 var format = d3.time.format('%Y-%m-%d');
 
 var constituencies = makeLookup(d3.tsv.parse( fs.readFileSync('constituency-lookup.tsv','utf-8') ), 'name');
+var parties = makeLookup(d3.csv.parse( fs.readFileSync('party-lookup.tsv','utf-8') ), 'abbreviation');
+console.log(parties);
 
 console.log(format(new Date()));
 //seat probability
@@ -60,7 +62,11 @@ function makeLookup(array, property){
 function addID(array){
   return array.map(function(d,i){
      d.id = constituencies[d.Seat].id;
-     d.current = constituencies[d.Seat].currentholder;
+     if(parties[constituencies[d.Seat].currentholder]){
+       d.current = parties[constituencies[d.Seat].currentholder].fullname;
+     }else{
+       d.current = constituencies[d.Seat].currentholder;
+     }
      return d;
   });
 }
