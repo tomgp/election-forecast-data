@@ -43,8 +43,6 @@ function toTSV(body, file){
   rows = d3.tsv.parse( d3.tsv.formatRows(rows) );
   rows = addID(rows);
 
-  console.log(rows);
-
   if(file){
     fs.writeFileSync( file, d3.tsv.format(rows) );
   }
