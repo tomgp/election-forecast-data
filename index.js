@@ -7,18 +7,17 @@ var cheerio = require('cheerio');
 
 var seatProbability = 'http://electionforecast.co.uk/tables/predicted_probability_by_seat.html';
 var seatResult = 'http://electionforecast.co.uk/tables/predicted_vote_by_seat.html';
+var homepage = 'http://electionforecast.co.uk/';
 var format = d3.time.format('%Y-%m-%d');
 
 var constituencies = makeLookup(d3.tsv.parse( fs.readFileSync('constituency-lookup.tsv','utf-8') ), 'name');
 var parties = makeLookup(d3.csv.parse( fs.readFileSync('party-lookup.tsv','utf-8') ), 'abbreviation');
-console.log(parties);
 
-console.log(format(new Date()));
 //seat probability
 request(seatProbability, function (error, response, body) {
   if (!error && response.statusCode === 200) {
     fs.writeFileSync('forecast-data/html/probability-'+format(new Date()), body);
-    toTSV(body,'forecast-data/tsv/probability-'+format(new Date()));
+    toTSV(body,'forecast-data/tsv/probability-'+format(new Date()),'.tablesorter', true );
   }
 });
 
@@ -26,15 +25,27 @@ request(seatProbability, function (error, response, body) {
 request(seatResult, function (error, response, body) {
   if (!error && response.statusCode === 200) {
     fs.writeFileSync( 'forecast-data/html/prediction-'+format(new Date()), body );
-    toTSV( body,'forecast-data/tsv/prediction-'+format(new Date()) );
+    toTSV( body,'forecast-data/tsv/prediction-'+format(new Date()), '.tablesorter',true );
+  }
+});
+
+//overview
+request(homepage, function (error, response, body) {
+  if (!error && response.statusCode === 200) {
+    fs.writeFileSync( 'forecast-data/html/home-'+format(new Date()), body );
+
+    toTSV( body,'forecast-data/tsv/seats-'+format(new Date()) , '#seatstable', false );
+    toTSV( body,'forecast-data/tsv/votes-'+format(new Date()) , '#votestable', false );
   }
 });
 
 
-function toTSV(body, file){
+function toTSV(body, file, tableparent, ids){
+  console.log('file', file);
   var $ = cheerio.load(body);
+
   var rows = [];
-  $('tr').each(function(i,d){
+  $(tableparent).find('tr').each(function(i,d){
     var row = [];
     $(d).find('td,th').each(function(j,e){
       row.push( $(e).text() );
@@ -43,8 +54,11 @@ function toTSV(body, file){
   });
 
   rows = d3.tsv.parse( d3.tsv.formatRows(rows) );
-  rows = addID(rows);
-
+  if(ids){
+    rows = addID(rows);
+  }else{
+    console.log('noid')
+  }
   if(file){
     fs.writeFileSync( file, d3.tsv.format(rows) );
   }
@@ -53,14 +67,14 @@ function toTSV(body, file){
 
 function makeLookup(array, property){
   var lookup = {};
-  array.forEach(function(d,i){
+  array.forEach(function(d){
     lookup[d[property]] = d;
   });
   return lookup;
 }
 
 function addID(array){
-  return array.map(function(d,i){
+  return array.map(function(d){
      d.id = constituencies[d.Seat].id;
      if(parties[constituencies[d.Seat].currentholder]){
        d.current = parties[constituencies[d.Seat].currentholder].fullname;

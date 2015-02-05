@@ -1,0 +1,1106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Chris Hanretty" />
+  <meta name="author" content="Benjamin Lauderdale" />
+  <meta name="author" content="Nick Vivyan" />
+  <title>ElectionForecast.co.uk</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="layout.css" type="text/css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body>
+<div id="header">
+<h1 class="title">ElectionForecast.co.uk</h1>
+<h2 class="author">Chris Hanretty</h2>
+<h2 class="author">Benjamin Lauderdale</h2>
+<h2 class="author">Nick Vivyan</h2>
+</div>
+<div id="logo" class="section level1">
+<h1>Logo</h1>
+<div class="figure">
+<img src="graphics/logo.svg" alt="This caption should not appear" /><p class="caption">This caption should not appear</p>
+</div>
+</div>
+<div id="masthead" class="section level1">
+<h1>2015 UK Parliamentary Election Forecast</h1>
+<p><a href="http://chrishanretty.co.uk/">Chris Hanretty, University of East Anglia</a><br /><a href="http://benjaminlauderdale.net/">Benjamin Lauderdale, London School of Economics</a><br /><a href="https://www.dur.ac.uk/sgia/profiles/?id=9278">Nick Vivyan, Durham University</a></p>
+<p>Our model combines data provided by <a href="http://http://yougov.co.uk">YouGov</a> with publicly released polls, historical election results, and data from the <a href="http://www.ons.gov.uk/ons/guide-method/census/2011/index.html">UK Census</a>. Daily updates to the website are posted by <a href="http://jackblumenau.com">Jack Blumenau, London School of Economics</a>, most recently on 05 February 2015 at 15:45. To read commentary on the election using these forecasts, <a href="https://twitter.com/intent/user?screen_name=Election4castUK">follow Election4castUK on Twitter</a>. If you would like to give us feedback on this forecast, please email us at <script type="text/javascript">
+<!--
+h='&#x65;&#108;&#x65;&#x63;&#116;&#x69;&#x6f;&#110;&#102;&#x6f;&#114;&#x65;&#x63;&#x61;&#x73;&#116;&#46;&#x63;&#x6f;&#46;&#x75;&#x6b;';a='&#64;';n='&#102;&#x65;&#x65;&#100;&#98;&#x61;&#x63;&#x6b;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#102;&#x65;&#x65;&#100;&#98;&#x61;&#x63;&#x6b;&#32;&#x61;&#116;&#32;&#x65;&#108;&#x65;&#x63;&#116;&#x69;&#x6f;&#110;&#102;&#x6f;&#114;&#x65;&#x63;&#x61;&#x73;&#116;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#32;&#100;&#x6f;&#116;&#32;&#x75;&#x6b;</noscript></p>
+</div>
+<div id="tablebar" class="section level1 tabber">
+<h1>Tables</h1>
+<div id="seatstable" class="section level2 tabber">
+<h2>Seats (UK)</h2>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="6%" />
+<col width="11%" />
+<col width="6%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Party</th>
+<th align="center">Lo</th>
+<th align="center">Seats</th>
+<th align="center">Hi</th>
+<th align="center">Swing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Labour</td>
+<td align="center">241</td>
+<td align="center"><strong>282</strong></td>
+<td align="center">328</td>
+<td align="center">24</td>
+</tr>
+<tr class="even">
+<td align="center">Conservatives</td>
+<td align="center">239</td>
+<td align="center"><strong>282</strong></td>
+<td align="center">320</td>
+<td align="center">-24</td>
+</tr>
+<tr class="odd">
+<td align="center">SNP</td>
+<td align="center">26</td>
+<td align="center"><strong>38</strong></td>
+<td align="center">48</td>
+<td align="center">32</td>
+</tr>
+<tr class="even">
+<td align="center">Liberal Democrats</td>
+<td align="center">16</td>
+<td align="center"><strong>24</strong></td>
+<td align="center">34</td>
+<td align="center">-33</td>
+</tr>
+<tr class="odd">
+<td align="center">DUP</td>
+<td align="center">6</td>
+<td align="center"><strong>8</strong></td>
+<td align="center">9</td>
+<td align="center">-1</td>
+</tr>
+<tr class="even">
+<td align="center">SDLP</td>
+<td align="center">2</td>
+<td align="center"><strong>3</strong></td>
+<td align="center">3</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">Plaid Cymru</td>
+<td align="center">1</td>
+<td align="center"><strong>2</strong></td>
+<td align="center">4</td>
+<td align="center">-1</td>
+</tr>
+<tr class="even">
+<td align="center">UKIP</td>
+<td align="center">1</td>
+<td align="center"><strong>2</strong></td>
+<td align="center">4</td>
+<td align="center">2</td>
+</tr>
+<tr class="odd">
+<td align="center">Greens</td>
+<td align="center">1</td>
+<td align="center"><strong>1</strong></td>
+<td align="center">2</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">Other</td>
+<td align="center">7</td>
+<td align="center"><strong>8</strong></td>
+<td align="center">11</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="votestable" class="section level2 tabber">
+<h2>Votes (GB)</h2>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="8%" />
+<col width="13%" />
+<col width="8%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Party</th>
+<th align="center">Lo</th>
+<th align="center">Votes</th>
+<th align="center">Hi</th>
+<th align="center">Swing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Conservatives</td>
+<td align="center">29.7%</td>
+<td align="center"><strong>33.4%</strong></td>
+<td align="center">37.3%</td>
+<td align="center">-3.4%</td>
+</tr>
+<tr class="even">
+<td align="center">Labour</td>
+<td align="center">28.4%</td>
+<td align="center"><strong>32.3%</strong></td>
+<td align="center">36.1%</td>
+<td align="center">2.6%</td>
+</tr>
+<tr class="odd">
+<td align="center">Liberal Democrats</td>
+<td align="center">10.5%</td>
+<td align="center"><strong>13.4%</strong></td>
+<td align="center">16.6%</td>
+<td align="center">-10.1%</td>
+</tr>
+<tr class="even">
+<td align="center">UKIP</td>
+<td align="center">8.0%</td>
+<td align="center"><strong>10.7%</strong></td>
+<td align="center">13.6%</td>
+<td align="center">7.5%</td>
+</tr>
+<tr class="odd">
+<td align="center">Greens</td>
+<td align="center">2.4%</td>
+<td align="center"><strong>4.2%</strong></td>
+<td align="center">6.2%</td>
+<td align="center">3.3%</td>
+</tr>
+<tr class="even">
+<td align="center">SNP</td>
+<td align="center">2.7%</td>
+<td align="center"><strong>3.3%</strong></td>
+<td align="center">4.0%</td>
+<td align="center">1.6%</td>
+</tr>
+<tr class="odd">
+<td align="center">Other</td>
+<td align="center">1.0%</td>
+<td align="center"><strong>2.2%</strong></td>
+<td align="center">3.7%</td>
+<td align="center">-1.4%</td>
+</tr>
+<tr class="even">
+<td align="center">Plaid Cymru</td>
+<td align="center">0.3%</td>
+<td align="center"><strong>0.5%</strong></td>
+<td align="center">0.7%</td>
+<td align="center">-0.1%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="majoritytable" class="section level2 tabber">
+<h2>Majority</h2>
+<table>
+<colgroup>
+<col width="30%" />
+<col width="18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Scenario</th>
+<th align="center">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Hung Parliament</td>
+<td align="center">0.91</td>
+</tr>
+<tr class="even">
+<td align="center">Labour Majority</td>
+<td align="center">0.06</td>
+</tr>
+<tr class="odd">
+<td align="center">Conservative Majority</td>
+<td align="center">0.03</td>
+</tr>
+</tbody>
+</table>
+<p>Will any party have <a href="#whatsamajority" onclick="document.getElementById('body').tabber.tabShow(4);">326</a> or more seats?</p>
+</div>
+<div id="pluralitytable" class="section level2 tabber">
+<h2>Plurality</h2>
+<table>
+<colgroup>
+<col width="31%" />
+<col width="18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Scenario</th>
+<th align="center">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Labour Plurality</td>
+<td align="center">0.50</td>
+</tr>
+<tr class="even">
+<td align="center">Conservative Plurality</td>
+<td align="center">0.49</td>
+</tr>
+</tbody>
+</table>
+<p>Which party will have the most seats?</p>
+</div>
+</div>
+<div id="mapbar" class="section level1 tabber">
+<h1>Figures</h1>
+<div id="map" class="section level2 tabber">
+<h2>Map</h2>
+<p><a href="graphics/2015_predicted_winner.svg"><img src="graphics/2015_predicted_winner.png" alt="Seat-by-seat predictions based on the party predicted to be most likely to win each seat." /></a></p>
+<p><a href="#addingup" onclick="document.getElementById('body').tabber.tabShow(4);">Why do these individual seat predictions not exactly match the aggregate seat predictions shown above?</a></p>
+</div>
+<div id="cartogram" class="section level2 tabber">
+<h2>Cartogram</h2>
+<p><a href="graphics/2015_predicted_winnerH.svg"><img src="graphics/2015_predicted_winnerH.svg" alt="Seat-by-seat predictions based on the party predicted to be most likely to win each seat." /></a></p>
+</div>
+<div id="forecastvote" class="section level2 tabber">
+<h2>Vote Forecasts</h2>
+<p><a href="graphics/2015_election_top_5.svg"><img src="graphics/2015_election_top_5.svg" alt="History of our forecast for GB vote shares." /></a></p>
+<p>Our GB vote forecasts, starting one year before the election. <a href="#slowchange" onclick="document.getElementById('body').tabber.tabShow(4);">Why are these forecasts different from the current polls?</a></p>
+</div>
+<div id="forecastvote" class="section level2 tabber">
+<h2>Seat Forecasts</h2>
+<p><a href="graphics/2015_seat_forecasts_top_5.svg"><img src="graphics/2015_seat_forecasts_top_5.svg" alt="History of our forecasts for GB seats." /></a></p>
+<p>Our GB seat forecasts, as published online since the end of August.</p>
+</div>
+<div id="pooledpolls" class="section level2 tabber">
+<h2>Current Polls</h2>
+<p><a href="graphics/2015_pool_top_5.svg"><img src="graphics/2015_pool_top_5.svg" alt="Pooled GB polling." /></a></p>
+<p>Our pooled summary of GB polling, starting one year before the election.</p>
+</div>
+</div>
+<div id="body" class="section level1 tabber">
+<h1>Body</h1>
+<div id="summary" class="section level2 tabber">
+<h2>Summary</h2>
+<p>Our current prediction is that there will be a tie between the Conservatives and Labour for the largest party with both parties on 282 seats. However, based on the historical relationships between the sources of information we are using in our forecast and the outcome of UK elections, <a href="#uncertainty" onclick="document.getElementById('body').tabber.tabShow(4);"> we know there is substantial uncertainty in our forecast</a>. The sidebar at right includes predictive probabilities of the key outcomes of the election, as well as vote and seat forecasts for each party with <a href="#probability" onclick="document.getElementById('body').tabber.tabShow(4);">90% uncertainty intervals</a>.</p>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Shipping_Forecast">And now the party forecast...</a>
+<ul>
+<li>Conservatives. Holding steady over the past fortnight. Seat loss very likely. Majority very unlikely. Plurality possible.</li>
+<li>Labour. Rising slightly. Seat gain very likely. Majority very unlikely. Plurality possible.</li>
+<li>Liberal Democrats. Holding steady. Seat loss almost certain.</li>
+<li>SNP. Holding steady. Seat gain almost certain.</li>
+<li>Plaid Cymru. Holding steady. Seat loss very likely.<br /></li>
+<li>Greens. Holding steady. Seat gain moderately unlikely.</li>
+<li>UKIP. Fading slightly. Seat gain almost certain.</li>
+</ul></li>
+</ul>
+</div>
+<div id="details" class="section level2 tabber">
+<h2>Seat Predictions (GB)</h2>
+<p>When reading our seat predictions, please keep in mind that our model may not know as much about your specific seat of interest as you do. The model knows how the general patterns of support across the UK have changed in constituencies with different kinds of political, geographic and demographic characteristics. The model uses the Ashcroft constituency polls where available, plus smaller samples of polling data for every constituency, extracted from pooling many national-level polls. However, the model does not know whether your MP is beloved by constituents or embroiled in scandal, nor does it know whether Boris Johnson or Nigel Farage is standing in your constituency, let alone what the implications of that might be. Some of this might be picked up in the polls, but not all of it will be, and we do not have much polling data to go on when it comes to constituencies. In the aggregate, these aspects of constituency-specific competition tend to average out across parties, but they certainly matter in individual constituencies. Think of our seat-level projections as a baseline for what you might expect from past election results, geography and demography, plus a little bit of polling data.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="tables/predicted_vote_by_seat.html">Sortable table of predicted vote share for every party in every seat.</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="tables/predicted_probability_by_seat.html">Sortable table of predicted probability of victory for every party in every seat.</a></td>
+</tr>
+</tbody>
+</table>
+<p>The following tables focuses on potential seat gains and losses for each of the parties, including only those seats for which the probability of a change of control is estimated at over 10%. If the table is blank, there are currently no such seats.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">Conservatives:</td>
+<td align="left"><a href="tables/Con_seat_gains.html">Gains</a></td>
+<td align="left"><a href="tables/Con_seat_losses.html">Losses</a></td>
+</tr>
+<tr class="even">
+<td align="left">Labour:</td>
+<td align="left"><a href="tables/Lab_seat_gains.html">Gains</a></td>
+<td align="left"><a href="tables/Lab_seat_losses.html">Losses</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Liberal Democrats:</td>
+<td align="left"><a href="tables/LD_seat_gains.html">Gains</a></td>
+<td align="left"><a href="tables/LD_seat_losses.html">Losses</a></td>
+</tr>
+<tr class="even">
+<td align="left">SNP:</td>
+<td align="left"><a href="tables/SNP_seat_gains.html">Gains</a></td>
+<td align="left"><a href="tables/SNP_seat_losses.html">Losses</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Plaid Cymru:</td>
+<td align="left"><a href="tables/PC_seat_gains.html">Gains</a></td>
+<td align="left"><a href="tables/PC_seat_losses.html">Losses</a></td>
+</tr>
+<tr class="even">
+<td align="left">Greens:</td>
+<td align="left"><a href="tables/GRN_seat_gains.html">Gains</a></td>
+<td align="left"><a href="tables/GRN_seat_losses.html">Losses</a></td>
+</tr>
+<tr class="odd">
+<td align="left">UKIP:</td>
+<td align="left"><a href="tables/UKIP_seat_gains.html">Gains</a></td>
+<td align="left"><a href="tables/UKIP_seat_losses.html">Losses</a></td>
+</tr>
+</tbody>
+</table>
+<p>The following table provides the individual seat predictions, aggregated up to England, Scotland and Wales. <a href="#addingup" onclick="document.getElementById('body').tabber.tabShow(4);">Please note that these may not exactly match the totals in the main forecast table, as they are based on the individual seat forecasts.</a>.</p>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Con</th>
+<th align="center">Lab</th>
+<th align="center">LD</th>
+<th align="center">SNP</th>
+<th align="center">PC</th>
+<th align="center">GRN</th>
+<th align="center">UKIP</th>
+<th align="center">Oth</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>England</strong></td>
+<td align="center">279</td>
+<td align="center">230</td>
+<td align="center">20</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Scotland</strong></td>
+<td align="center">2</td>
+<td align="center">16</td>
+<td align="center">1</td>
+<td align="center">40</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Wales</strong></td>
+<td align="center">7</td>
+<td align="center">30</td>
+<td align="center">2</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+<p>The following table provides the individual seat predictions (columns), aggregated by the party that won the seat at the 2010 general election (rows). <a href="#addingup" onclick="document.getElementById('body').tabber.tabShow(4);">Please note that these may not exactly match the totals in the main forecast table, as they are based on the individual seat forecasts.</a>.</p>
+<table>
+<colgroup>
+<col width="22%" />
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Con</th>
+<th align="center">Lab</th>
+<th align="center">LD</th>
+<th align="center">SNP</th>
+<th align="center">PC</th>
+<th align="center">GRN</th>
+<th align="center">UKIP</th>
+<th align="center">Oth</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>2010 Con</strong></td>
+<td align="center">273</td>
+<td align="center">31</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>2010 Lab</strong></td>
+<td align="center">0</td>
+<td align="center">233</td>
+<td align="center">0</td>
+<td align="center">25</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>2010 LD</strong></td>
+<td align="center">15</td>
+<td align="center">10</td>
+<td align="center">23</td>
+<td align="center">9</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>2010 SNP</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">6</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>2010 PC</strong></td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>2010 GRN</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>2010 UKIP</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>2010 Oth</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="nowcast" class="section level2 tabber">
+<h2>Constituency Polls</h2>
+<p>The votes and seats totals shown elsewhere on this site are forecasts.  They are predictions about what will happen on 7 May 2015.  These forecasts are based on where we think the polls are today, combined with historical evidence about how support for parties evolves as elections approach.  As such, they will have significant uncertainty until just before the election.  Because they are predictions about what will happen on 7 May, there is no way to evaluate them until the election occurs.</p>
+<p>This tab provides our estimates of what constituency polls conducted today in every constituency would discover.  This is not exactly an estimate of what would happen in an election today, and it may not exactly match the current national polls.  Since <a href="http://lordashcroftpolls.com">Lord Ashcroft Polls</a> is currently publishing the vast majority of constituency polls, these estimates specifically aim to predict where those polls would find each constituency in the question “Thinking specifically about your own Parliamentary constituency at the next General Election and the candidates who are likely to stand for election to Westminster there, which party's candidate do you think you will vote for in your own constituency?”  </p>
+<p>These estimates allow us to evaluate the performance of our model at interpolating the likely situation in unpolled constituencies every time Lord Ashcroft releases polls of previously unpolled constituencies.  While there are many other aspects of our forecasting model, one important component is to correctly determine what is likely to be happening right now in unpolled constituencies, or in constuencies that have not been polled in many months, and so the degree to which we are successful at that is important.  Every time there are new constituency polls released, we will write a blog post evaluating how well these constituency poll estimates predicted those newly published polls at the <a href="http://blogs.lse.ac.uk/generalelection/">LSE General Election</a> blog.</p>
+<p>Here are our estimates of what these hypothetical constituency polls would look like in every GB seat today:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="tables/current_vote_by_seat.html">Sortable table of current vote share for every party in every seat.</a></td>
+</tr>
+</tbody>
+</table>
+<p>If we aggregate the vote shares to the regional level, we get these totals:</p>
+<table>
+<colgroup>
+<col width="39%" />
+<col width="7%" />
+<col width="7%" />
+<col width="6%" />
+<col width="7%" />
+<col width="6%" />
+<col width="7%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Con</th>
+<th align="center">Lab</th>
+<th align="center">LD</th>
+<th align="center">SNP</th>
+<th align="center">PC</th>
+<th align="center">GRN</th>
+<th align="center">UKIP</th>
+<th align="center">Oth</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>East Midlands</strong></td>
+<td align="center">33</td>
+<td align="center">35</td>
+<td align="center">6</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">6</td>
+<td align="center">18</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>East of England</strong></td>
+<td align="center">38</td>
+<td align="center">23</td>
+<td align="center">10</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">7</td>
+<td align="center">21</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>London</strong></td>
+<td align="center">30</td>
+<td align="center">43</td>
+<td align="center">10</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">7</td>
+<td align="center">10</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>North East</strong></td>
+<td align="center">21</td>
+<td align="center">49</td>
+<td align="center">7</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">5</td>
+<td align="center">17</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>North West</strong></td>
+<td align="center">25</td>
+<td align="center">45</td>
+<td align="center">8</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">5</td>
+<td align="center">15</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Scotland</strong></td>
+<td align="center">13</td>
+<td align="center">31</td>
+<td align="center">7</td>
+<td align="center">42</td>
+<td align="center">0</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>South East</strong></td>
+<td align="center">42</td>
+<td align="center">20</td>
+<td align="center">12</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">7</td>
+<td align="center">17</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>South West</strong></td>
+<td align="center">37</td>
+<td align="center">20</td>
+<td align="center">17</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">9</td>
+<td align="center">17</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Wales</strong></td>
+<td align="center">20</td>
+<td align="center">40</td>
+<td align="center">8</td>
+<td align="center">0</td>
+<td align="center">12</td>
+<td align="center">4</td>
+<td align="center">15</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>West Midlands</strong></td>
+<td align="center">32</td>
+<td align="center">35</td>
+<td align="center">7</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">6</td>
+<td align="center">19</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Yorkshire and The Humber</strong></td>
+<td align="center">24</td>
+<td align="center">42</td>
+<td align="center">8</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">6</td>
+<td align="center">18</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="coalitions" class="section level2 tabber">
+<h2>Coalitions</h2>
+<p>An <a href="#whatsamajority" onclick="document.getElementById('body').tabber.tabShow(4);">unambiguous majority</a> in the House of Commons requires 326 seats. Our forecast is that there is currently a 0.91 probability that no single party will reach 326. This tab provides information on the probability that different <em>combinations</em> of two parties will pass the 326-seat threshold. Here, we make the assumption that certain pairs of parties will never work together to support a government. We exclude Labour partnering with the Conservatives, UKIP, DUP or Sinn Fein; we exclude Conservatives partnering with Labour, SNP, Greens, Plaid Cymru, SDLP or Sinn Fein.</p>
+<p>We can divide the range of possible seat distributions into a set of coalition formation scenarios. The following is based on an adapted version of a <a href="http://onlinelibrary.wiley.com/doi/10.1111/ajps.12111/abstract">typology presented here</a>. Given the current forecast, there are four major types of coalitions scenarios that might occur after the 2015 election:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Type</th>
+<th align="left">Scenario</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">I</td>
+<td align="left">The largest party has more than 325 seats.</td>
+</tr>
+<tr class="even">
+<td align="center">II</td>
+<td align="left">The largest party has more than one possible two-party coalition partner.</td>
+</tr>
+<tr class="odd">
+<td align="center">III</td>
+<td align="left">The largest party has only one possible two-party coalition partner.</td>
+</tr>
+<tr class="even">
+<td align="center">IV</td>
+<td align="left">The largest party has no possible two-party coalition partner.</td>
+</tr>
+</tbody>
+</table>
+<p>The table below indicates the probability of observing each of these 'types' after the election, breaking down some of the types into subtypes that depend on exactly which parties are involved:</p>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="31%" />
+<col width="14%" />
+<col width="31%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Type</th>
+<th align="center">Lab largest</th>
+<th align="center">Probability</th>
+<th align="center">Con largest</th>
+<th align="center">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">I</td>
+<td align="center">with majority</td>
+<td align="center">0.06</td>
+<td align="center">with majority</td>
+<td align="center">0.03</td>
+</tr>
+<tr class="even">
+<td align="center">II</td>
+<td align="center">with Liberal Democrats or SNP</td>
+<td align="center">0.17</td>
+<td align="center">with DUP or Liberal Democrats</td>
+<td align="center">0.03</td>
+</tr>
+<tr class="odd">
+<td align="center">II</td>
+<td align="center">with any one of three or more parties</td>
+<td align="center">0.01</td>
+<td align="center">with any one of three or more parties</td>
+<td align="center">0.01</td>
+</tr>
+<tr class="even">
+<td align="center">III</td>
+<td align="center">with SNP only</td>
+<td align="center">0.16</td>
+<td align="center">with Liberal Democrats only</td>
+<td align="center">0.16</td>
+</tr>
+<tr class="odd">
+<td align="center">III</td>
+<td align="center">with Liberal Democrats only</td>
+<td align="center">0.00</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">IV</td>
+<td align="center">with no possible two party coalition</td>
+<td align="center">0.09</td>
+<td align="center">with no possible two party coalition</td>
+<td align="center">0.27</td>
+</tr>
+</tbody>
+</table>
+<!-- addition by CJH, 18/01/2015 -->
+<p>These probabilities are predictions of what majorities are mathematically possible. <em>They are not predictions of what government will form.</em> First, legislative arithmetic does not determine governing arrangements: just because a party has the seats to govern alone does not mean it will govern alone, and just because a party could reach a majority with another party does not mean it will be able to reach an agreement with that party. Second, these mathematically possible majorities do not help us distinguish between a formal coalition (such as the one formed between the Conservatives and the Liberal Democrats in 2010) and a confidence and supply agreement (where one party relies on the support of another for budget votes and votes-of-confidence).</p>
+<p>The typology does, however, help us to understand the relative strength of Labour or the Conservatives after the next election. For example, if Labour finds itself as the lead party in a type II scenario, then it will be able to form a coalition with more than one potential partner. This puts it in a stronger bargaining position than, for instance, if it were in a type III scenario and could only form a coalition with a single partner.  But this would still be a stronger position than if Labour were in a type IV scenario where it required agreement with multiple partners.</p>
+<p>Note that the cells in our table are not logically exhaustive of all possibilities, even if we assume that Labour and the Conservatives are guaranteed to be the two largest parties in terms of seats. For example, in 2010, had Labour won somewhat more seats than they did, either a Labour-Liberal Democrat or a Conservative-Liberal Democrat coalition would have commanded a majority of seats. This is an additional type that we do not list in the table above. Given likely Liberal Democrat losses and the fact that the SNP has ruled out supporting a Conservative government, this situation where a third party can choose between a two-party arrangement with either the Conservatives or Labour is very unlikely to occur in 2015.</p>
+</div>
+<div id="faq" class="section level2 tabber">
+<h2>FAQ</h2>
+<div id="frequently-asked-questions" class="section level3">
+<h3>Frequently Asked Questions</h3>
+<ol style="list-style-type: decimal">
+<li><a href="#information">What information do you use in this forecast?</a></li>
+<li><a href="#slowchange">Why do the forecasts change so slowly?</a></li>
+<li><a href="#wrong">If you are wrong, how are you most likely to be wrong?</a></li>
+<li><a href="#probability">What does it mean when you say a party has a 90% chance of between X and Y seats?</a></li>
+<li><a href="#uncertainty">Why is there so much uncertainty in your forecasts?</a></li>
+<li><a href="#retrocast2010">How well would this forecasting procedure have worked for predicting the 2010 election?</a></li>
+<li><a href="#northernireland">What about Northern Ireland?</a></li>
+<li><a href="#whatsamajority">How many seats is a majority?</a></li>
+<li><a href="#houseeffects">What are the the &quot;house effects&quot; for the pollsters?</a></li>
+<li><a href="#comparisons">How is this forecast different from other forecasts?</a></li>
+<li><a href="#addingup">Why do your individual seat predictions not add up to your aggregate seat predictions?</a></li>
+<li><a href="#start1979">Why do you only use historical data back to 1979?</a></li>
+<li><a href="#UKIP">How confident are you that UKIP will really do so poorly at converting votes into seats?</a></li>
+<li><a href="#probabilitystatements">What do statements like &quot;moderately unlikely&quot; mean?</a></li>
+<li><a href="#software">What software do you use?</a></li>
+<li><a href="#colours">How did you choose these lovely/garish website colours?</a></li>
+<li><a href="#conflicts">Do you have any conflicts of interest?</a></li>
+<li><a href="#acknowledgements">Do you have any acknowledgements?</a></li>
+</ol>
+</div>
+<div id="information" class="section level3">
+<h3>What information do you use in this forecast?</h3>
+<p>We combine several sources of information. We have past election results, and we have have information on a variety of constituency characteristics. For <a href="#northernireland">Northern Ireland (NI)</a> we have very limited polling data, but for <a href="http://www.cgpgrey.com/blog/the-difference-between-the-united-kingdom-great-britain-england">Great Britain (GB)</a> we also have frequent current and historical polling which gives us information on what proportion of people who intend to vote for each party. For a small number of these polls we have the raw data, and can break down the results by constituency. Here is what we can learn from each of these kinds of information...</p>
+<div id="past-election-results" class="section level4">
+<h4>Past election results</h4>
+<p>The outcomes of recent elections are useful in two ways. First, they set some rough bounds on what outcomes are likely in this election (e.g. the Conservatives are very unlikely to get less than 25% or more than 45% of the national vote). Second, and more importantly, past election results can help us <em>calibrate</em> how predictive our other sources of information are likely to be in 2015. If we know how useful a particular kind of information was in predicting past elections, that can help us determine how to use it in the present.</p>
+</div>
+<div id="current-aggregate-polling" class="section level4">
+<h4>Current aggregate polling</h4>
+<p>Many pollsters poll GB voting intention continuously, whether there is an election soon or not. You can see lists of polls on <a href="http://ukpollingreport.co.uk">UK Polling Report</a> or <a href="http://en.wikipedia.org/wiki/Opinion_polling_for_the_next_United_Kingdom_general_election">Wikipedia</a>. If all polling companies produced a poll every day with the same methods and the same sample size, we could take a simple average of these polls, and use this as our best guess of the true support for each party. Unfortunately, polls are carried out using different methods by different companies at varying intervals and with smaller or larger samples. We therefore <em><a href="http://www.tandfonline.com/doi/abs/10.1080/10361140500302472#.U7wiJx_HnCI">pool the polls</a></em> to get an estimate of relative party support across Great Britain for every day during the year before the election, using an assumption that relative party support is changing slowly to smooth out the gaps between the polls.</p>
+</div>
+<div id="historical-aggregate-polling" class="section level4">
+<h4>Historical aggregate polling</h4>
+<p>We use a variant of an idea developed by <a href="http://users.ox.ac.uk/~nuff0084/ge15forecast/">Stephen Fisher</a> following <a href="http://www.jstor.org/stable/420189">Erikson and Wlezien</a> for determining how to use current pooled polling to predict the election day vote share for each party nationwide. The basic principle is that polling has some systematic biases, in particular a tendency to overstate changes from the previous election. We used historical polling data <a href="#start1979">starting with the 1979 election</a> compiled by <a href="http://ukpollingreport.co.uk">UK Polling Report</a> to calibrate how much weight we should put on past electoral performance relative to current polling performance, and how those weights should change as we approach the election.</p>
+</div>
+<div id="current-raw-polling-data" class="section level4">
+<h4>Current raw polling data</h4>
+<p>Aggregate polling is enough to forecast parties' national vote shares, but what actually matters is how many <em>seats</em> each party secures, which in turn depends on how well each party performs in each constituency. Both history and polling can help predict how vote shares in each constituency will deviate from vote shares nationally. A traditional seat forecast would use <a href="#UNS">Uniform National Swing (UNS)</a>, which relies entirely on each constituency's historical deviation from national vote shares. We also use this historical information to inform our estimates of vote shares in each constituency, but we combine these estimates with the limited information we get from our raw polling data. This raw polling data does not give us very many responses per constituency, and so we cannot simply tally up how many respondents support each party in each constituency. Instead, we have to use these observations to infer broader patterns of support across constituencies.</p>
+</div>
+<div id="constituency-characteristics" class="section level4">
+<h4>Constituency characteristics</h4>
+<p>The way we infer these broader patterns is by modelling how individual respondents' voting intention varies as a function of the characteristics of their constituency. By constituency characteristics, we mean things like past vote and incumbent party, as well as population density, region, average age, distribution of religious affiliation and many other characteristics made available by the <a href="http://www.nomisweb.co.uk/census/2011">2011 UK Census</a>. We use a <a href="http://en.wikipedia.org/wiki/Multilevel_model">multilevel model</a> that we designed specifically for this project in order to estimate how these characteristics correlate with polling responses. The more strongly these characteristics are related to individuals' vote choice, the more confident we can be in estimating constituency vote shares, even for constituencies where we only have a few observations in the raw data. For the purposes of prediction, we don't need these characteristics to <em>cause</em> people to vote in any particular way: correlation is enough.</p>
+</div>
+</div>
+<div id="slowchange" class="section level3">
+<h3>Why do the forecasts change so slowly?</h3>
+<p>Because the forecast has a lot of inertia -- as it should. Polls have sampling error. Pollsters also have systematic biases, because surveying a random sample of the people who will choose to turn out to vote <em>at some point in the future</em> is very difficult. Different pollsters make different choices about how to best approximate this, which is why our model includes <a href="#houseeffects"><em>house effects</em></a>. So the estimate of where current polling puts the parties will only change noticeably if changes are evident across multiple polls from multiple pollsters. In addition to requiring many polls to show a shift in party support, the forecast puts weight on both past vote share as well as current polling, with the weight on the latter increasing as the election approaches. We estimated the optimal weighting of past vote share and current polling based on polling leading up to <a href="#start1979">elections from 1979 forward</a>. This means that even when all the polls show a change, if it is far from the election, the change in our forecast vote share will be substantially smaller than the change in pooled polls.</p>
+</div>
+<div id="wrong" class="section level3">
+<h3>If you are wrong, how are you most likely to be wrong?</h3>
+<p>We do know some things that are difficult to incorporate into our model. At the level of the overall election outcome, there are a number of factors that could cause us to miss badly. The two that we worry about most are how Liberal Democrat losses are distributed, and how UKIP gains are distributed. While we have some evidence from polling about how support for these parties varies across the UK right now, generic party preference polls do not always capture the features of local competition that are likely to be vital as the Liberal Democrats fight to hold onto their seats and UKIP tries to win some.</p>
+<p>For the Liberal Democrats, past performance is useful. In contrast, UKIP's performance in the last general election may not be a good predictor given the recent increases in the party's popularity. Where possible, we've used information from the 2014 European Parliament elections - but because EP election results are only available at the local authority level rather than at the level of the Westminster constituency, this may be a poor guide. If UKIP had competed in elections from 1979 onwards, and had performed near their current polling level, we would have good historical evidence on the link between current polling and eventual electoral performance. As we get closer to the election, this should become less of a problem. However, if our forecast is badly off, it will probably be related to either the Liberal Democrats or UKIP's performance in the election, and the knock-on consequences for Labour and the Conservatives.</p>
+<p>More generally, it is difficult to predict the performance of parties that compete only in a part of the UK, particularly the Scottish National Party and the Plaid Cymru. The number of seats that these parties will win can vary a lot based on very small changes in their national vote share, because their votes are concentrated in a few constituencies. This is why our forecasts for seat totals for these two parties have a wide range: national-level polls do not provide very precise information about how many seats they will win. In that sense, we are not be <em>wrong</em> about these parties, but we cannot provide a very precise predictions.</p>
+<p>At the level of individual seats, there are lots of factors that may matter, that we are not measuring. We don't know whether we'll see a particularly strong performance for the <a href="http://grumpyoldelvis.co.uk/">Bus Pass Elvis Party</a>, or unduly heavy rain in that region on election day, or whether the local MP is embroiled in a scandal. If there is something systematic that might affect the results across a range of constituencies, and which can be measured, let us know.</p>
+</div>
+<div id="probability" class="section level3">
+<h3>What does it mean when you say a party has a 90% chance of between X and Y seats?</h3>
+<p>Our forecast is based on a <a href="https://en.wikipedia.org/wiki/Bayesian_inference">Bayesian model</a> that incorporates the various sources of <a href="#information">information</a> described above. The model reflects what we believe are reasonable assumptions about how to combine these sources of information, <a href="#wrong">but we could be wrong</a>. The intervals we report are the central 90% of the <a href="https://en.wikipedia.org/wiki/Posterior_probability">posterior distribution</a> for seats or for vote share. This means that our model, given the data we have so far, indicates that there is a 5% chance that the quantity in question will fall below the lower bound (Lo) and a 5% chance that the quantity in question will fall above the upper bound (Hi). Thus, there is a 90% chance that the true figure will fall between the numbers marked Lo and Hi.</p>
+<p>These intervals, as well as the <em>mean posterior</em> estimates that we report as our primary prediction, are derived from an <a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo">MCMC</a> estimate of the <a href="graphics/2015_seat_histogram.svg">entire distribution of possible outcomes for each of the parties</a>.</p>
+</div>
+<div id="uncertainty" class="section level3">
+<h3>Why is there so much uncertainty in your forecasts?</h3>
+<p>Most of the uncertainty in our predictions comes from the fact that <em>even immediately before election day</em> general election polls in the UK have not been very accurate. Whereas the average of all the polls taken in US presidential elections has been highly accurate in recent elections, in the UK the election day polls have recently missed party vote shares by as much as 4 percentage points. There is a good reason for this: polls tend to ask a generic question about support for different parties, rather than asking about the specific candidates in a survey respondent's constituency. This means they tend to miss the local strategic concerns that arise in multiparty campaigns.</p>
+<p>One consequence of this is that even on election day, we will have substantial uncertainty in our estimates. The forecasts will get more precise, but not until very close to election day. The relative weight on current polling as opposed to past election results will start rising around January 2015; however the forecasting uncertainty will not decline until the final fortnight before the election. When we run the same model on data available immediately prior to the 2010 election, the 90% intervals in seats for Labour and the Conservatives are both about 100 seats wide, so even on election day we are not going to be able to make a very precise prediction.</p>
+</div>
+<div id="retrocast2010" class="section level3">
+<h3>How well would this forecasting procedure have worked for predicting the 2010 election?</h3>
+<p><a href="2010/index.html">To see the details of our 2010 &quot;retrocast&quot;, follow this link.</a></p>
+<p>Our procedure would have produced a better prediction than any other forecast available at the time -- but we developed our procedure by testing it on the 2010 results, and so this isn't a fair comparison. The biggest difficulty in predicting the 2010 election outcome is that the Liberal Democrats average 27% across all pollsters on the day before the election, but only received 23% of the vote. That 4% error is not especially large by historical standards (in 1992 both Labour and Conservative vote shares were off from the final polling average by that much), but it did make it difficult for forecasts to avoid overpredicting Liberal Democrat seats substantially: <a href="http://www1.politicalbetting.com/index.php/archives/2010/05/">the best forecast published before the election predicted 81 Lib Dem seats, versus the 57 they actually secured.</a></p>
+<p>Our procedure, applied to the 2010 results, still overpredicts Liberal Democrat seats, but not as much as others did at the time. Our model yields a better prediction for Liberal Democrat seats because it takes into account the historical tendency for the Conservatives, Labour and Liberal Democrats to underperform the polls when the polls indicate gains on the last election and to overperform the polls when the polls indicate losses from the last election. For 2010, this means that the forecast for the Liberal Democrat vote comes in lower than what the final polls indicated; for 2015 it means that the forecast for the Liberal Democrat vote comes in above their current polling.</p>
+</div>
+<div id="northernireland" class="section level3">
+<h3>What about Northern Ireland?</h3>
+<p>Our Northern Ireland forecast is entirely separate from our forecast for the rest of the UK, and is based on much more limited data. Northern Ireland is allocated 18 of the 650 seats in the House of Commons. Northern Ireland has a different party system than the rest of the UK, and none of the major UK parties have recently won seats there. Political polls of the &quot;UK&quot; are nearly always polls of Great Britain: they exclude Northern Ireland from the sampling frame. There is very little dedicated Northern Irish polling by comparison to the rest of the UK.</p>
+<p>Parties from Northern Ireland have not recently entered into government coalitions in the UK, however, in case of a <a href="http://en.wikipedia.org/wiki/Hung_parliament">hung parliament</a>, the major UK parties may look to Northern Irish parties to <a href="http://www.theguardian.com/politics/2014/may/08/david-cameron-hosts-dup-mps-in-lavish-downing-street-reception">make up the gap to a parliamentary majority</a>. In our table of seats, we explicitly list the two Northern Irish parties generally viewed as most likely to support a UK government. The Democratic Unionist Party (DUP, 8 seats in 2010) might support a Conservative government. The Social Democratic and Labour Party (SDLP, 3 seats in 2010) might support a Labour government. MPs from other Northern Irish parties with fewer seats, as well as Sinn Fein MPs following a policy of <a href="https://en.wikipedia.org/wiki/Abstentionism">abstentionism</a> (5 seats in 2010), are currently grouped under &quot;Other&quot;.</p>
+</div>
+<div id="whatsamajority" class="section level3">
+<h3>How many seats is a majority?</h3>
+<p>We use 326 as the standard for a majority, even though the non-voting Speaker plus the abstaining Sinn Fein MPs reduce the number of votes required to survive a confidence vote to 323 (given the current number of Sinn Fein MPs).</p>
+</div>
+<div id="houseeffects" class="section level3">
+<h3>What are the the &quot;house effects&quot; for the pollsters?</h3>
+<p>The house effects describe systematic differences in support for the various parties that do not reflect sampling variability, but instead appear to reflect the different decisions that pollsters make about how to ask about support for smaller parties, about weighting, and about modelling voter turnout. <a href="graphics/2015_house_effect_plot.svg">Here are the current estimates of the house effects for each polling company, for each party.</a></p>
+</div>
+<div id="comparisons" class="section level3">
+<h3>How is this forecast different from...</h3>
+<div id="UNS" class="section level4">
+<h4>UK forecasts</h4>
+<p>The classic approach for translating vote shares in seats in the UK is to apply <a href="http://en.wikipedia.org/wiki/Uniform_national_swing">Uniform National Swing (UNS)</a>. In this approach, for every constituency we take the results from the last election for each party, and shift those results by the national shift in vote share from the last election. Thus, if we somehow could figure out the national vote shares for the parties for the upcoming election, we could make a prediction for every seat.</p>
+<p>We could therefore produce a different forecast by taking our forecast vote shares and applying a uniform national swing. <a href="http://www.electoralcalculus.co.uk/userpoll.html">Some web pages</a> allow you to make predictions in this way.</p>
+<p>We don't do this, because we believe we can improve on UNS by using raw polling information. If UNS is &quot;right&quot;, then raw polling information should lead us to make similar predictions.</p>
+<!-- One could apply UNS given the results of a single poll, but it has long been recognized that *pooling* a set of polls is a better strategy.  <!-- reference those who are pooling the polls and how long they have been doing it. We do not treat this average of the polls as our estimate of what will happen on election day though. 
+
+As noted above, we are using a similar idea to Steve Fisher in order to determine how much weight to put on parties past electoral performance versus their current polling.  However, his seat forecasts are then based on UNS, while ours are based on a weighting of UNS and our current poll-based estimates of how each party's support varies from its national average, in each constituency, using a multilevel model.  -->
+</div>
+<div id="us-forecasts" class="section level4">
+<h4>US forecasts</h4>
+<p>US election forecasts have received a lot of attention, in part because they have performed so well in recent presidential elections. In 2012, the forecasts of <a href="http://fivethirtyeight.blogs.nytimes.com/fivethirtyeights-2012-forecast/">Nate Silver</a>, <a href="http://votamatic.org">Drew Linzer</a>, <a href="http://election.princeton.edu">Sam Wang</a>, and <a href="http://www.huffingtonpost.com/simon-jackman/pollster-predictive-perfo_b_2087862.html">Simon Jackman</a> all performed extremely well, correctly predicting either 50 or 51 of the 51 states/districts. All of these models depend fundamentally on the availability of state-level polling data in the US, combining that data with other sources of data and assumptions. The reason all these models worked well and yielded similar predictions is because publically reported polls of individual US states were plentiful and (on average) accurate, and the <a href="http://www.cgpgrey.com/blog/how-the-electoral-college-works.html">electoral college</a> system makes US states the units where presidential elections are decided. Unfortunately, constituency-level polls in the UK are rare, and even when we get raw, individual-level data from national polls, the sample sizes for constituencies are tiny. This, plus the presence of more than two parties, makes forecasting UK elections fundamentally more difficult than US presidential elections. <!-- Nate Silver, who has been highly successful at predicting past US elections, did [relatively poorly](http://www1.politicalbetting.com/index.php/archives/2010/05/)  in [his 2010 UK prediction](http://fivethirtyeight.com/features/uk-forecasting-retrospective/).  --></p>
+</div>
+</div>
+<div id="addingup" class="section level3">
+<h3>Why do your individual seat predictions not add up to your aggregate seat predictions?</h3>
+<p>Imagine there are 3 constituencies that we estimate each have a 2/3 chance of going to Labour, with the remaining 1/3 for the Conservatives. If we want to make our best guess for each constituency individually, we would predict Labour in all three constituencies. However, if we wanted to make our best guess as to the total number of Labour seats, we would predict 2 total Labour seats rather than 3. The discrepency between our individual seat predications and our aggregate seat predictions arises from this kind of difference, across many constituencies, with varying and non-independent probabilities, across many parties.</p>
+</div>
+<div id="why-do-you-predict-that-labour-is-more-likely-to-win-a-plurality-but-predict-fewer-individuals-seats-for-the-conservatives" class="section level3">
+<h3>Why do you predict that Labour is more likely to win a plurality, but predict fewer individuals seats for the Conservatives?</h3>
+<p>When we make a prediction about the number of seats, we are giving a mean estimate. That is, we are averaging across lots of simulated elections. In some of these elections, a party barely wins a plurality; in others, it romps home .</p>
+<p>In this instance, although the Conservatives generally don't win a plurality in most of our simulated elections, when they do win a plurality, they gain a relatively large tally of seats. This drags their average up. The average therefore reflects a large number of occasions where they didn't win a plurality, and a smaller number of occasions where they won big.</p>
+</div>
+<div id="start1979" class="section level3">
+<h3>Why do you only use historical data back to 1979?</h3>
+<p>We use data starting in 1979 for two reasons. In 1974 there were UK general elections in both <a href="http://en.wikipedia.org/wiki/United_Kingdom_general_election,_February_1974">February</a> and <a href="http://en.wikipedia.org/wiki/United_Kingdom_general_election,_October_1974">October</a> due to a hung parliament after the February election and the inability of any set of parties to form a majority coalition. Having two elections in 1974 makes studying the trajectories of the polls in the run-up to the October election difficult. Second, the further we go back, the greater risk we have that polling performance has changed fundamentally, and so it makes sense to stop at some point.</p>
+</div>
+<div id="UKIP" class="section level3">
+<h3>How confident are you that UKIP will really do so poorly at converting votes into seats?</h3>
+<p>Not as confident as the model says we are, for many of the reasons <a href="#wrong">noted above</a>. UKIP performance is uncertain in a way that is very difficult to model. Because UKIP has such a limited record in parliamentary elections, it is difficult to predict where they will perform well. Moreover, we just have no idea from recent UK history how well a party like UKIP can be expected to do in the general election compared to, for example, the EP election in 2014. The fact that our estimates put weight on both lagged vote from 2010 and current polling means that the model is skeptical about UKIPs poll numbers, and will remain so until shortly before the election. If UKIP support holds at its current levels through election day and polling begins to indicate that UKIP support is concentrated in certain constituencies rather than inefficiently spread across most constituencies, the forecast may begin to indicate seat gains.</p>
+<!-- 
+
+### Why are you hedging so much? {#hedging}
+
+> Absolute certainty is a privilege of uneducated minds and fanatics. It is, for scientific folk, an unattainable ideal. - Cassius J. Keyser (or possibly someone else, one never knows with quotes one finds on the internet)
+
+-->
+</div>
+<div id="probabilitystatements" class="section level3">
+<h3>What do statements like &quot;moderately unlikely&quot; mean?</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Probability</th>
+<th align="center">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0-10%</td>
+<td align="center">very unlikely</td>
+</tr>
+<tr class="even">
+<td align="left">11-25%</td>
+<td align="center">unlikely</td>
+</tr>
+<tr class="odd">
+<td align="left">26-40%</td>
+<td align="center">moderately unlikely</td>
+</tr>
+<tr class="even">
+<td align="left">40-59%</td>
+<td align="center">possible</td>
+</tr>
+<tr class="odd">
+<td align="left">60-74%</td>
+<td align="center">probable</td>
+</tr>
+<tr class="even">
+<td align="left">75-89%</td>
+<td align="center">very likely</td>
+</tr>
+<tr class="odd">
+<td align="left">90-100%</td>
+<td align="center">almost certain</td>
+</tr>
+</tbody>
+</table>
+<p>This scale comes from <a href="http://psycnet.apa.org/journals/apl/74/3/433.pdf">&quot;Quantitative meanings of verbal probability expressions&quot; by Reagan, Mosteller and Youtz</a>.</p>
+</div>
+<div id="software" class="section level3">
+<h3>What software do you use?</h3>
+<p>The core of our system for estimation and reporting of our forecasts is the <a href="http://en.wikipedia.org/wiki/R_(programming_language)">R programming language</a>. Our pooling-the-polls model and our multilevel model for constituency deviations are implemented in <a href="http://en.wikipedia.org/wiki/Just_another_Gibbs_sampler">JAGS</a>, called directly from R scripts. Our reports are generated using <a href="http://ggplot2.org">ggplot2</a> and <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>. The pipeline is automated: each day we drop in new data, and then a master script re-estimates the model, re-generates the report you are currently reading, and uploads it to this web site.</p>
+</div>
+<div id="colours" class="section level3">
+<h3>How did you choose these lovely/garish website colours?</h3>
+<p><a href="http://en.wikipedia.org/wiki/Wikipedia:Index_of_United_Kingdom_political_parties_meta_attributes">We borrowed them.</a></p>
+</div>
+<div id="conflicts" class="section level3">
+<h3>Do you have any conflicts of interest?</h3>
+<p>Our primary interest is in providing a high quality forecast so we do not embarrass ourselves. We are not gambling on the basis of these predictions. None of us are working for a political party or candidate.</p>
+</div>
+<div id="acknowledgements" class="section level3">
+<h3>Do you have any acknowledgements?</h3>
+<p>We thank <a href="https://yougov.co.uk">YouGov</a> for data access, and <a href="http://users.ox.ac.uk/~nuff0084/">Stephen Fisher</a>, <a href="http://personal.lse.ac.uk/hix/">Simon Hix</a> and <a href="http://stats.lse.ac.uk/kuha/">Jouni Kuha</a> for helpful conversations.</p>
+<p>Our forecasting methodology uses methods developed for estimating public opinion in Westminster constituencies in a project funded by the Economic and Social Research Council, grant number <a href="http://www.esrc.ac.uk/my-esrc/grants/ES.K003666.1/read">ES/K0036664/1</a>. Our work on this forecasting methodology is not funded by that grant.</p>
+</div>
+</div>
+<div id="changelog" class="section level2 tabber">
+<h2>Updates</h2>
+<div id="january" class="section level4">
+<h4>29 January</h4>
+<p>We added a plot with the history of our seat forecasts since the end of August.</p>
+</div>
+<div id="january-1" class="section level4">
+<h4>27 January</h4>
+<p>We updated the text in the Nowcast tab to clarify what those estimates correspond to. It was slightly misleading to say they are estimates of what would happen in an election if held today. It is more accurate to say they are estimates of what a Lord Ashcroft constituency poll would say in the constituency if it was fielded today.</p>
+</div>
+<div id="january-2" class="section level4">
+<h4>18 January</h4>
+<p>Today we added a Coalitions tab to our forecast. This provides the probabilities that Labour and the Conservatives will be able to form two-party majorities with politically plausible partners among the other parties. This does not constitute a forecast of which coalitions will form, but rather the situation that the largest parties will find themselves in regarding which coalitions are mathematically possible.</p>
+<p>In the last few days, in order to take into account the fact that Ashcroft and YouGov have added UKIP to the first stage of their question prompt, we have introduced new house effects for those two pollsters, which are referred to as YouGov 2 and Ashcroft 2 in the <a href="graphics/2015_house_effect_plot.svg">house effects plot</a>. These house effects will be relatively uncertain until more polls come in from those two pollsters using their new methods.</p>
+</div>
+<div id="december" class="section level4">
+<h4>12 December</h4>
+<p>Today we added Northern Ireland to our forecast. For the moment, we are only showing the seat forecasts for the DUP and SDLP in the seat table, all other parties are grouped into &quot;Other&quot; as the list of parties becomes too long otherwise. Sinn Fein currently has more seats than the SDLP, however their policy of abstentionism means that they do not enter into coalition calculations, which is why we have grouped them into &quot;Other&quot;. We plan to provide further details in future updates.</p>
+<p>Our Northern Ireland model is relatively simple compared to the GB model, because there is very little polling data to use. Since May 2014, there has been only a single Belfast Telegraph poll of Northern Ireland vote intention. As a result, the model we have primarily reflects historical evidence. We use historical patterns in how much vote share for the Northern Irish parties changes from election to election across constituencies. We also use demographic data from the 2011 Census to model where particular parties are likely to be competitive in 2015, and where they are not.</p>
+<p>For further discussion, see our <a href="#northernireland" onclick="document.getElementById('body').tabber.tabShow(4);">FAQ item on Northern Ireland.</a></p>
+</div>
+<div id="november" class="section level4">
+<h4>9 November</h4>
+<p>Today, we added a new feature to the website and made a change to the model.</p>
+<p>The new feature is the &quot;Nowcast&quot; tab, which includes information on what we think the current polls imply about what would happen in an election today, if those polls are unbiased. We still think there are strong historical reasons not to take this as the best guess of what will happen on 7 May, but we have received many questions about this and so we thought we should include it. There is a table showing the seats and votes for each party across the UK, and a sortable table with the vote share for each seat.</p>
+<p>The change to the model concerns the SNP. The lack of any constituency polls in Scotland has made it difficult for us to treat the SNP the same way we treat the other parties. In particular, part of our model uses Ashcroft's constituency polls to calibrate the difference between the generic &quot;how would you vote in an election tomorrow&quot; question and the specific &quot;thinking about your constituency... how will you vote next May&quot; question. We have been unable to do this for the SNP, because of the lack of Ashcroft polls in Scotland. Unfortunately, we think this was being a little unfair to the SNP's chances, because the effect of the more specific question is to make parties stronger where they are strong and weaker where they are weak, as survey respondents think more about the specific strategic situation in their constituency. We have arrived at a better solution, which is to take the typical recalibration of other parties as our guess for the SNP. This adjustment has important consequences for our seat forecast. Because the SNP primarily gains seats that Labour might otherwise have won, we now have a slight advantage fot the Conservatives in the forecast, whereas previously we had a slight advantage for Labour. It is not a large change, we are still on course for a very close election. We hope that Ashcroft polls some of these constituencies soon, so we have a bit more data and a bit less guesswork to go on for Scotland.</p>
+</div>
+<div id="october" class="section level4">
+<h4>16 October</h4>
+<p>As part of a systematic check of our codebase that we are doing as part of writing up documentation on our model, we found an unfortunate programming error today.  This was causing us to mis-apply our turnout estimates for individual constituencies when we reconcile the UK vote with individual constituency vote shares.  Some errors have trivial consequences, but this was not one of those.  The error was reducing our seat estimates for Labour by about 10 seats, because Labour tends to perform better in constituencies with less turnout, and we were not modelling this as we intended.  </p>
+<p>Because we use the same code for the <a href="http://electionforecast.co.uk/2010/index.html">2010 retrocast</a>, fixing this also changed our retrospective test of how the model would have performed in 2010, entirely for the better.  Before, we 'predicted' the Conservatives on 319 seats, Labour on 238, and the Liberal Democrats on 66 seats.  This gives a total error of 44 seats. We now 'predict' the Conservatives on 297 seats, Labour on 259, Lib Dems on 66. This gives a total error of 19 seats.  At the level of individual seats, fixing this error helped as well, our retrocast now 'predicts' 9 more individual seats correctly than does applying uniform national swing using the true national vote figures from the 2010 election (information that was not available before the 2010 election, but which yields the best case prediction for UNS).  </p>
+</div>
+<div id="october-1" class="section level4">
+<h4>14 October</h4>
+<p>Today we made a change to the way we weight the microdata we have been receiving from YouGov. Since their data is weighted for the UK, not for individual constituencies, we have to use our own weighting scheme to make sure that we have representative constituency-level samples. Because YouGov surveys the same individuals multiple times over many months, we had repeated observations of the same individuals, that were being erroneously treated as independent observations. We have now fixed this problem. This leads to very little change in aggregate seat counts for the Conservatives and Labour, but it does have consequences for the other parties and for many individual seats. We think that most of our more puzzling individual seat predictions are now more reasonable. Thanks to everyone who pointed out weird constituency-level predictions, they were useful in helping us to identify that this overweighting of repeated observations really had serious consequences for the forecasts.</p>
+<p>Reflecting the fact that we are now more confident that our polling data is reliably weighted, we are now also putting full weight on the polls for estimating constituency-level variation around the national-level party support. For our 2010 retrocast, the individual-level data is not properly weighted to constituency (and cannot easily be), so it made sense to put some weight on history as well. But given the substantial swings in LD, SNP and UKIP support, historical vote shares are less likely to be predictive going forward. The past vote still informs the model we use to interpolate from the limited polling data, as it always has; we just no longer take that final polling estimate and weight it with last election's results, before reconciling it with the predicted national vote. As a matter of our modelling approach, we are going further from (the safety of) UNS with this change.</p>
+<p>We have not made any changes to the model since the beginning of September, and we were certainly hoping those changes would be our last before the election. However, we value being right more than being consistent. Watching the forecasts over the last month and a half has indicated that we could generate a better forecast with a few changes, so we are making a few changes.</p>
+<p>We have also been generating ideas for a more fundamental overhaul of the model design for 2020. But maybe we will get lucky: if our current forecast is spot on, and the parties cannot figure out how to form a viable coalition, we might get another election to forecast much sooner.</p>
+</div>
+<div id="september" class="section level4">
+<h4>2 September</h4>
+<p>The new Clacton constituency poll from Lord Ashcroft asks a question about vote intention for the general election. Since that is the target of our forecast, we are now using that question rather than Ashcroft or Survation's questions about the by-election.</p>
+</div>
+<div id="september-1" class="section level4">
+<h4>1 September</h4>
+<p>Our seat predictions are now posted under the &quot;Seat Predictions&quot; tab. In the preperation for posting these, we have made several minor bug fixes as well.</p>
+<p>We have decided to include the Clacton by-election poll conducted by Survation in our analysis for the moment, but we have downweighted it substantially to reflect the fact that it is about the by-election rather than the general election. The consequence of using it is that UKIP is now favoured to win Clacton. When more polls of the Clacton by-election become available, ideally once all candidates are declared, we will remove this poll.</p>
+</div>
+<div id="august-2014" class="section level4">
+<h4>29 August 2014</h4>
+<p>We are planning to release our full seat predictions on Monday, 1 September. In doing our final sanity checks on these, we found several errors/inconsistencies in the data source we are using for past election results. For whatever reason, about 25 constituencies were labeled as being in the wrong region, with some consequences for our model. We also discovered that the turnout variable we were using was not the right one. All of this is now fixed.</p>
+<p>Today's forecast shows a swing back towards a very narrow lead for the Conservatives. Some of this is due to the aforementioned fixes, and some of it is due to recent YouGov and Populus polls suggesting the current Labour polling lead is somewhat smaller than previously indicated.</p>
+</div>
+<div id="august-2014-1" class="section level4">
+<h4>26 August 2014</h4>
+<p>We have made what we hope will be our final two tweaks to the model. One change was to improve the pre-processing of polling micro-data to incorporate information about respondents' past voting behavior in our reweighting procedure. The more noticeable change was reducing the weight we place on historical variation in support across constituencies for UKIP, which was suppressing their chances of winning a seat. While we do not like making exceptions for single parties, in this case it seemed that the argument for using history was consistency rather than any real expectation that history would be informative. This change has the effect of increasing the expected number of UKIP seats to 1 seat, and there is a non-trivial chance of UKIP winning multiple seats. At the same time, the most likely outcome is still zero UKIP seats and there is no particular seat that we predict going to UKIP. To understand how all these statements can be true, it is helpful to <a href="graphics/2015_seat_histogram.svg">look at the predictive distribution of UKIP seats</a>.</p>
+<p>We are planning to freeze the model on 1 September, and only add new data after that date.</p>
+</div>
+<div id="august-2014-2" class="section level4">
+<h4>24 August 2014</h4>
+<p>Today's forecast incorporates a new batch of data at the constituency level, leading to some noticeable changes in the map, although not in the overall seat totals. The most visually obvious change is the constituency of Caithness, Sutherland and Easter Ross at the northern tip of Scotland, currently held by the Liberal Democrats, which we now forecast as most likely to be a Labour pickup. The vote in this constituency at the last election was 41.4 Liberal Democrat, 24.6 Labour, 19.2 SNP. The model is anticipating a close three-way result: 49% probability of Labour victory, 26% chance of the Liberal Democrats retaining the seat and a 25% chance of an SNP pickup. The predicted votes for the three parties are: 26.4 Labour, 24.6 Liberal Democrat, 24.2 SNP.</p>
+<p>More comprehensive seat-level details coming soon...</p>
+</div>
+<div id="august-2014-3" class="section level4">
+<h4>20 August 2014</h4>
+<p>Today we added data from <a href="http://lordashcroftpolls.com/2014/08/swing-labour-extends-deeper-tory-territory/">12 constituency polls fielded by Lord Ashcroft</a>. Because we only use alternate days of YouGov releases, so as not to double-count when they provide samples from overlapping sets of days, we had no new national polling to add. This gives a relatively clean illustration of the consequences of adding constituency-level data to our model. In the aggregate, not a lot changed: none of the constituency polls released today were very surprising results. Labour gained Weaver Vale and Dewsbury in the forecast from the Conservatives, both of which were polled constituencies. We already had Labour ahead in the other polled constituencies, so the polling data mostly reinforced what the model already expected.</p>
+<p>Labour did not gain in the aggregate seat predictions though. If Labour is doing a little better than we thought in Weaver Vale and Dewsbury, they might be doing a little better everywhere. But more likely, given how much evidence we have from the many national polls, they are just doing a little worse somewhere else in the UK than we thought. In the end, all the constituency results have to add up to the UK results, and this shapes how the model interprets the new constituency polling results.</p>
+</div>
+<div id="august-2014-4" class="section level4">
+<h4>16 August 2014</h4>
+<p>A small change to the methodology today. We realized yesterday, when we switched from the generic party support question to the &quot;thinking about your own constituency&quot; questions in the Ashcroft constituency surveys, that we could use systematic patterns in the support for the parties under those two different questions to recalibrate other constituency survey data where we only have the generic question. We implemented that calibration yesterday, and the forecasts posted today reflect that change.</p>
+<p>The obvious change is that this brings the Liberal Democrats up by another 5 seats from 20 to 25. While we apply recalibration to all parties, by far the biggest discrepencies between the two survey questions in the Ashcroft data are for the Liberal Democrats. In the Ashcroft polls fielded since the beginning of May, the average support for the Liberal Democrats is 62% higher in the &quot;thinking about your own constituency&quot; question than in the generic question, and the relationship is almost perfectly proportional, regardless of the level of Liberal Democrat support in a given constituency.</p>
+<p>All the national polls ask the generic question, so there is good reason to believe that the national polls are understanding Liberal Democratic support. Looking at our national numbers, the Liberal Democrats are currently at about 9% in our polling average and at 15% in our forecast, which very nearly matches the 62% difference we see in the Ashcroft constituency polls between the generic and the specific question. We expect that difference to close over the course of the campaign, but this is exactly the kind of problem with generic polling that leads to put weight on past election results as well as current polls.</p>
+<p>We are hoping to stop changing our forecasting methodology soon, but we have received a lot of useful questions and feedback since we posted the site, which have provided ideas about how to improve the model. We may have a few more changes to make in the coming week or two.</p>
+</div>
+<div id="august-2014-5" class="section level4">
+<h4>15 August 2014</h4>
+<p>In today's update, we changed which survey question we use from the Ashcroft constituency polls. We were previously using the &quot;If there was a general election tomorrow, which party would you vote for?&quot; question that is generally asked in national surveys. We have changed over to using the question: &quot;Thinking specifically about your own parliamentary constituency at the next General Election and the candidates who are likely to stand for election to Westminster there, which party's candidate do you think you will vote for in your own constituency?&quot; We think this question better captures local conditions, which is the aim of using these polls in our model. For example, the Ashcroft poll of 5-12 June for the Green-held seat of Brighton Pavilion has Labour 39% to Green 27% on the generic question, while the constituency question has Labour 33% to Green 32%. We see similar improvements of Liberal Democrat and UKIP standing in this question in their stronger constituencies. Versus using the generic data, the Liberal Democrats and Greens have higher seat forecasts as a result of this change.</p>
+<!-- Tabber Snippet -->
+<script type="text/javascript" src="tabber.js">
+</script>
+<!-- Google Analytics Snippet -->
+<script>
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52360956-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- External links in new tab -->
+<script>
+function externalLinks() {
+  for(var c = document.getElementsByTagName("a"), a = 0;a < c.length;a++) {
+    var b = c[a];
+    b.getAttribute("href") && b.hostname !== location.hostname && (b.target = "_blank")
+  }
+}
+;
+externalLinks();
+</script>
+</div>
+</div>
+</div>
+</body>
+</html>
